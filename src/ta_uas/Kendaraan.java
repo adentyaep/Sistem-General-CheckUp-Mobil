@@ -17,10 +17,10 @@ public class Kendaraan {
     
     
     public Kendaraan (int kode, String nama, int roda, String jbakar){
-        this.kode = kode;
-        this.nama = nama;
-        this.roda = roda;
-        this.jbakar = jbakar;
+        setKode(kode);
+        setNama(nama);
+        setRoda(roda);
+        setJbakar(jbakar);
     }
     
     public Kendaraan(){

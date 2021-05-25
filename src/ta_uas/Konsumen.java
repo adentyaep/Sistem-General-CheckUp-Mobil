@@ -15,9 +15,9 @@ public class Konsumen {
     private String alamat;
 
     public Konsumen(int kode, String nama, String alamat) {
-        this.kode = kode;
-        this.nama = nama;
-        this.alamat = alamat;
+        setKode(kode);
+        setNama(nama);
+        setAlamat(alamat);
     }
     public int getKode() {
         return kode;

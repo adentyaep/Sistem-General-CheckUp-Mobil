@@ -14,8 +14,8 @@ public class Servis {
     private int kerusakan;
 
     public Servis(String part, int kerusakan) {
-        this.part = part;
-        this.kerusakan = kerusakan;
+        setPart(part);
+        setKerusakan(kerusakan);
     }
 
     public String getPart() {
