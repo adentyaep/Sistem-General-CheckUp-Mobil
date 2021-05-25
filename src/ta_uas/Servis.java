@@ -9,23 +9,14 @@ package ta_uas;
  *
  * @author USER
  */
-public class Servis {
-    private String part;
+public class Servis extends Part{
     private int kerusakan;
 
-    public Servis(String part, int kerusakan) {
-        setPart(part);
-        setKerusakan(kerusakan);
+    public Servis(int kerusakan, String namaPart) {
+        super(namaPart);
+        this.kerusakan = kerusakan;
     }
-
-    public String getPart() {
-        return part;
-    }
-
-    public void setPart(String part) {
-        this.part = part;
-    }
-
+    
     public int getKerusakan() {
         return kerusakan;
     }
@@ -34,13 +25,13 @@ public class Servis {
         this.kerusakan = kerusakan;
     }
     
-    public String kategori(int kerusakan){
-        if (kerusakan <= 30){
-            return "Ringan";
-        } else if (kerusakan <= 70){
-            return "Sedang";
-        } else {
-            return "Berat";
-        }
-    }
+//    public String kategori(int kerusakan){
+//        if (kerusakan <= 30){
+//            return "Ringan";
+//        } else if (kerusakan <= 70){
+//            return "Sedang";
+//        } else {
+//            return "Berat";
+//        }
+//    }
 }

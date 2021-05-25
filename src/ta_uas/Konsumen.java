@@ -13,12 +13,27 @@ public class Konsumen {
     private int kode;
     private String nama;
     private String alamat;
+    private Part[] listPart = new Part[10];
+    private int itungPart=0;
 
     public Konsumen(int kode, String nama, String alamat) {
         setKode(kode);
         setNama(nama);
         setAlamat(alamat);
+//        this.kode = kode;
+//        this.nama = nama;
+//        this.alamat = alamat;
     }
+    
+    public void addPart(Part s){
+        listPart[itungPart] = s;
+        itungPart++;
+    }
+    
+    public int getItungPart() {
+        return itungPart;
+    }
+    
     public int getKode() {
         return kode;
     }
@@ -42,5 +57,12 @@ public class Konsumen {
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
-    
+
+    public Part[] getListPart() {
+        return listPart;
+    }
+
+    public void setListPart(Part[] listPart) {
+        this.listPart = listPart;
+    }
 }

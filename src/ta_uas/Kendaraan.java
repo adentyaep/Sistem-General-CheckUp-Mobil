@@ -24,6 +24,7 @@ public class Kendaraan {
     }
     
     public Kendaraan(){
+        
     }
 
     public String getNama() {
