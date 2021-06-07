@@ -328,7 +328,7 @@ public class GUI extends javax.swing.JFrame {
             nKendaraan.remove(row);
             dtm.setRowCount(1);
             for (int i = 0; i < nKendaraan.size(); i++){
-                Object[] objs = {nKendaraan.get(i).kode, nKendaraan.get(i).nama, nKendaraan.get(i).alamat, nKendaraan.get(i).mobil, nKendaraan.get(i).roda, nKendaraan.get(i).jbakar, nKendaraan.get(i).part, nKendaraan.get(i).kerusakan};
+                Object[] objs = {nKendaraan.get(i).kode, nKendaraan.get(i).nama, nKendaraan.get(i).alamat, nKendaraan.get(i).mobil, nKendaraan.get(i).roda, nKendaraan.get(i).jbakar, nKendaraan.get(i).part, nKendaraan.get(i).kerusakan, nKendaraan.get(i).kategori(nKendaraan.get(i).kerusakan)};
                 dtm.addRow(objs);
             }
         } else {
