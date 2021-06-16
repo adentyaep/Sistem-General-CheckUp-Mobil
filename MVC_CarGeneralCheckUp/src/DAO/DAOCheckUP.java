@@ -32,9 +32,9 @@ public class DAOCheckUP implements ICheckUP {
     }
     
     //SQL QUERY
-    final String insert = "INSERT INTO tabel_gui (pemilik, alamat, mobil, roda, bhn_bakar, bgn_check, kerusakan, kategori) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+    final String insert = "INSERT INTO tabel_gui (kode, pemilik, alamat, mobil, roda, bhn_bakar, bgn_check, kerusakan, kategori) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     final String delete = "DELETE FROM tabel_gui WHERE kode=?";
-    final String update = "UPDATE tabel_gui set pemilik=?, alamat=?, mobil=?, bhn_bakar=?, bgn_check=?, kerusakan=?, kategori=? WHERE kode=?";
+    final String update = "UPDATE tabel_gui SET pemilik=?, alamat=?, mobil=?, roda=?, bhn_bakar=?, bgn_check=?, kerusakan=?, kategori=? WHERE kode=?";
     final String select = "SELECT * FROM tabel_gui";
     
     @Override
@@ -73,14 +73,15 @@ public class DAOCheckUP implements ICheckUP {
        try
        {
            statement = con.prepareStatement(insert);
-           statement.setString(1, mchk.getPemilik());
-           statement.setString(2, mchk.getAlamat());
-           statement.setString(3, mchk.getMobil());
-           statement.setInt(4, mchk.getRoda());
-           statement.setString(5, mchk.getBhn_bakar());
-           statement.setString(6, mchk.getBgn_check());
-           statement.setInt(7, mchk.getKerusakan());
-           statement.setString(8, mchk.getKategori());
+           statement.setInt(1, mchk.getKode());
+           statement.setString(2, mchk.getPemilik());
+           statement.setString(3, mchk.getAlamat());
+           statement.setString(4, mchk.getMobil());
+           statement.setInt(5, mchk.getRoda());
+           statement.setString(6, mchk.getBhn_bakar());
+           statement.setString(7, mchk.getBgn_check());
+           statement.setInt(8, mchk.getKerusakan());
+           statement.setString(9, mchk.getKategori());
            statement.execute();
            
        }
@@ -94,6 +95,64 @@ public class DAOCheckUP implements ICheckUP {
                statement.close();
            } catch (SQLException ex) {
                System.out.println("Gagal input");
+               ex.printStackTrace();
+           }
+       }
+    }
+
+    @Override
+    public void update(MCheckUP mchk) {
+        PreparedStatement statement = null;
+       try
+       {
+           statement = con.prepareStatement(update);
+           statement.setString(1, mchk.getPemilik());
+           statement.setString(2, mchk.getAlamat());
+           statement.setString(3, mchk.getMobil());
+           statement.setInt(4, mchk.getRoda());
+           statement.setString(5, mchk.getBhn_bakar());
+           statement.setString(6, mchk.getBgn_check());
+           statement.setInt(7, mchk.getKerusakan());
+           statement.setString(8, mchk.getKategori());
+           statement.setInt(9, mchk.getKode());
+           statement.execute();
+           
+       }
+       catch(SQLException e)
+       {
+           System.out.println("Gagal Update");
+           e.printStackTrace();
+       }
+       finally
+       {
+           try {
+               statement.close();
+           } catch (SQLException ex) {
+               ex.printStackTrace();
+           }
+       }
+    }
+
+    @Override
+    public void delete(int kode) {
+       PreparedStatement statement = null;
+       try
+       {
+           statement = con.prepareStatement(delete);
+           statement.setInt(1, kode);
+           statement.execute();
+           
+       }
+       catch(SQLException e)
+       {
+           System.out.println("Gagal Hapus");
+           e.printStackTrace();
+       }
+       finally
+       {
+           try {
+               statement.close();
+           } catch (SQLException ex) {
                ex.printStackTrace();
            }
        }

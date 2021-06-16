@@ -92,5 +92,13 @@ public class MCheckUP {
         this.kategori = kategori;
     }
     
-    
+    public String kategori(int kerusakan){
+        if (kerusakan <= 30){
+            return "Ringan";
+        } else if (kerusakan <= 70){
+            return "Sedang";
+        } else {
+            return "Berat";
+        }
+    }
 }

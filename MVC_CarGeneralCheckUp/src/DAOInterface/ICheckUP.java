@@ -17,4 +17,8 @@ public interface ICheckUP {
     public List<MCheckUP> getAll();
     // Create Data
     public void insert (MCheckUP mchk);
+//    Update data
+    public void update (MCheckUP mchk);
+//    Delete data
+    public void delete(int kode);
 }
